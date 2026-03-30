@@ -13,5 +13,7 @@ public sealed class Laptop : Equipment
     public double ScreenSize { get; set; }
 
     public override string GetSpecification()
-        => $"Laptop | RAM: {RamGb} GB | Screen: {ScreenSize:F1}\"";
+    {
+        return $"Laptop | RAM: {RamGb} GB | Screen: {ScreenSize:F1}\"";
+    }
 }

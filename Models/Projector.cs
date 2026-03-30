@@ -11,5 +11,7 @@ public sealed class Projector : Equipment
     public int Brightness { get; set; }
 
     public override string GetSpecification()
-        => $"Projector | Brightness: {Brightness} lm";
+    {
+        return $"Projector | Brightness: {Brightness} lm";
+    }
 }

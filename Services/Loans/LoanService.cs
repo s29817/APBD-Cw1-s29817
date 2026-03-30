@@ -17,21 +17,14 @@ public class LoanService : ILoanService
     public Loan Borrow(User user, Models.Equipment equipment, DateTime borrowedAt, int numberOfDays)
     {
         if (equipment.Status != EquipmentStatus.Available)
-        {
             throw new BusinessRuleException($"Equipment '{equipment.Name}' is not available.");
-        }
 
         var activeLoanCount = _loans.Count(loan => loan.IsActive && loan.User.Id == user.Id);
         if (activeLoanCount >= user.LoanLimit)
-        {
             throw new BusinessRuleException(
                 $"User {user.FirstName} {user.LastName} exceeded the limit of {user.LoanLimit} active loans.");
-        }
 
-        if (numberOfDays <= 0)
-        {
-            throw new BusinessRuleException("Loan period must be greater than 0 days.");
-        }
+        if (numberOfDays <= 0) throw new BusinessRuleException("Loan period must be greater than 0 days.");
 
         var dueDate = borrowedAt.Date.AddDays(numberOfDays);
         var loan = new Loan(user, equipment, borrowedAt, dueDate);
@@ -47,10 +40,7 @@ public class LoanService : ILoanService
         var loan = _loans.FirstOrDefault(item => item.Id == loanId)
                    ?? throw new NotFoundException($"Loan with id {loanId} was not found.");
 
-        if (!loan.IsActive)
-        {
-            throw new BusinessRuleException($"Loan {loanId} is already closed.");
-        }
+        if (!loan.IsActive) throw new BusinessRuleException($"Loan {loanId} is already closed.");
 
         var penalty = _penaltyPolicy.Calculate(loan.DueDate, returnedAt);
         loan.Close(returnedAt, penalty);
@@ -60,10 +50,17 @@ public class LoanService : ILoanService
     }
 
     public IReadOnlyCollection<Loan> GetActiveLoansForUser(int userId)
-        => _loans.Where(loan => loan.IsActive && loan.User.Id == userId).ToList().AsReadOnly();
+    {
+        return _loans.Where(loan => loan.IsActive && loan.User.Id == userId).ToList().AsReadOnly();
+    }
 
     public IReadOnlyCollection<Loan> GetOverdueLoans(DateTime today)
-        => _loans.Where(loan => loan.IsOverdue(today)).ToList().AsReadOnly();
+    {
+        return _loans.Where(loan => loan.IsOverdue(today)).ToList().AsReadOnly();
+    }
 
-    public IReadOnlyCollection<Loan> GetAll() => _loans.AsReadOnly();
+    public IReadOnlyCollection<Loan> GetAll()
+    {
+        return _loans.AsReadOnly();
+    }
 }

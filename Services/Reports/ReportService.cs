@@ -8,9 +8,9 @@ namespace APBD_Cw1_s29817.Services.Reports;
 
 public class ReportService : IReportService
 {
-    private readonly IUserService _userService;
     private readonly IEquipmentService _equipmentService;
     private readonly ILoanService _loanService;
+    private readonly IUserService _userService;
 
     public ReportService(IUserService userService, IEquipmentService equipmentService, ILoanService loanService)
     {

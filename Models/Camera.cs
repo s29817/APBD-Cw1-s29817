@@ -8,8 +8,10 @@ public sealed class Camera : Equipment
         Megapixels = megapixels;
     }
 
-    public int Megapixels { get; set;  }
+    public int Megapixels { get; set; }
 
     public override string GetSpecification()
-        => $"Camera | {Megapixels} MP";
+    {
+        return $"Camera | {Megapixels} MP";
+    }
 }

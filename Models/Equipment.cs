@@ -19,12 +19,25 @@ public abstract class Equipment
     public string Manufacturer { get; set; }
     public EquipmentStatus Status { get; private set; }
 
-    public void MarkBorrowed() => Status = EquipmentStatus.Borrowed;
-    public void MarkAvailable() => Status = EquipmentStatus.Available;
-    public void MarkUnavailable() => Status = EquipmentStatus.Unavailable;
+    public void MarkBorrowed()
+    {
+        Status = EquipmentStatus.Borrowed;
+    }
+
+    public void MarkAvailable()
+    {
+        Status = EquipmentStatus.Available;
+    }
+
+    public void MarkUnavailable()
+    {
+        Status = EquipmentStatus.Unavailable;
+    }
 
     public abstract string GetSpecification();
 
     public override string ToString()
-        => $"[{Id}] {Name} ({Manufacturer}) | Status: {Status} | {GetSpecification()}";
+    {
+        return $"[{Id}] {Name} ({Manufacturer}) | Status: {Status} | {GetSpecification()}";
+    }
 }

@@ -19,5 +19,8 @@ public abstract class User
     public abstract UserType UserType { get; set; }
     public abstract int LoanLimit { get; set; }
 
-    public override string ToString() => $"[{Id}] {FirstName} {LastName} ({UserType})";
+    public override string ToString()
+    {
+        return $"[{Id}] {FirstName} {LastName} ({UserType})";
+    }
 }
