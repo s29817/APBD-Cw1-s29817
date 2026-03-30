@@ -1,6 +1,6 @@
 ﻿namespace APBD_Cw1_s29817.Models;
 
-public sealed class Loan
+public class Loan
 {
     private static int _nextId = 1;
 

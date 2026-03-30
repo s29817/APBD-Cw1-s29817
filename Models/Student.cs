@@ -2,7 +2,7 @@
 
 namespace APBD_Cw1_s29817.Models;
 
-public sealed class Student : User
+public class Student : User
 {
     public Student(string firstName, string lastName, string studentNumber)
         : base(firstName, lastName)

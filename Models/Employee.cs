@@ -2,7 +2,7 @@
 
 namespace APBD_Cw1_s29817.Models;
 
-public sealed class Employee : User
+public class Employee : User
 {
     public Employee(string firstName, string lastName, string department)
         : base(firstName, lastName)

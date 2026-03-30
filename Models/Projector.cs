@@ -1,6 +1,6 @@
 ﻿namespace APBD_Cw1_s29817.Models;
 
-public sealed class Projector : Equipment
+public class Projector : Equipment
 {
     public Projector(string name, string manufacturer, int brightness)
         : base(name, manufacturer)

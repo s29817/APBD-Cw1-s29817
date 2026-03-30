@@ -1,6 +1,6 @@
 ﻿namespace APBD_Cw1_s29817.Models;
 
-public sealed class Laptop : Equipment
+public class Laptop : Equipment
 {
     public Laptop(string name, string manufacturer, int ramGb, double screenSize)
         : base(name, manufacturer)

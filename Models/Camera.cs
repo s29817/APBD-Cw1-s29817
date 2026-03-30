@@ -1,6 +1,6 @@
 ﻿namespace APBD_Cw1_s29817.Models;
 
-public sealed class Camera : Equipment
+public class Camera : Equipment
 {
     public Camera(string name, string manufacturer, int megapixels)
         : base(name, manufacturer)
