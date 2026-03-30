@@ -1,6 +1,6 @@
 ﻿using APBD_Cw1_s29817.Enums;
 
-namespace APBD_Cw1_s29817.Services.Users;
+namespace APBD_Cw1_s29817.Models;
 
 public sealed class Student : User
 {

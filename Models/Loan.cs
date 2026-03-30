@@ -1,4 +1,4 @@
-﻿namespace APBD_Cw1_s29817.Services.Users;
+﻿namespace APBD_Cw1_s29817.Models;
 
 public sealed class Loan
 {

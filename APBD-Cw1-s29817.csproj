@@ -8,12 +8,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Exceptions\" />
-      <Folder Include="Models\" />
-      <Folder Include="Services\Equipment\" />
-      <Folder Include="Services\Loans\" />
-      <Folder Include="Services\Reports\" />
-    </ItemGroup>
-
 </Project>
