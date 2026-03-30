@@ -1,10 +1,10 @@
 ﻿namespace APBD_Cw1_s29817.Services.Loans;
 
-public class PenaltyPolicy : IPenaltyPolicy
+public class PenaltyService : IPenaltyService
 {
     private readonly decimal _dailyRate;
 
-    public PenaltyPolicy(decimal dailyRate)
+    public PenaltyService(decimal dailyRate)
     {
         _dailyRate = dailyRate;
     }

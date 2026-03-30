@@ -7,11 +7,11 @@ namespace APBD_Cw1_s29817.Services.Loans;
 public class LoanService : ILoanService
 {
     private readonly List<Loan> _loans = [];
-    private readonly IPenaltyPolicy _penaltyPolicy;
+    private readonly IPenaltyService _penaltyService;
 
-    public LoanService(IPenaltyPolicy penaltyPolicy)
+    public LoanService(IPenaltyService penaltyService)
     {
-        _penaltyPolicy = penaltyPolicy;
+        _penaltyService = penaltyService;
     }
 
     public Loan Borrow(User user, Models.Equipment equipment, DateTime borrowedAt, int numberOfDays)
@@ -42,7 +42,7 @@ public class LoanService : ILoanService
 
         if (!loan.IsActive) throw new BusinessRuleException($"Loan {loanId} is already closed.");
 
-        var penalty = _penaltyPolicy.Calculate(loan.DueDate, returnedAt);
+        var penalty = _penaltyService.Calculate(loan.DueDate, returnedAt);
         loan.Close(returnedAt, penalty);
         loan.Equipment.MarkAvailable();
 

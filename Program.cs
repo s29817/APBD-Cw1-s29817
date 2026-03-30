@@ -7,7 +7,7 @@ using APBD_Cw1_s29817.Services.Users;
 
 IUserService userService = new UserService();
 IEquipmentService equipmentService = new EquipmentService();
-ILoanService loanService = new LoanService(new PenaltyPolicy(15m));
+ILoanService loanService = new LoanService(new PenaltyService(15m));
 IReportService reportService = new ReportService(userService, equipmentService, loanService);
 
 var student = new Student("Anna", "Nowak", "s12345");
